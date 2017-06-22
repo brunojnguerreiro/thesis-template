@@ -14,4 +14,13 @@ old/
 *.bbl
 *.blg
 *.out
+*.acn
+*.idx
+*.ist
+*.loe
+*.lof
+*.lot
+*.ntn
+*.toc
+*.pdfsync
 *.synctex.gz
