@@ -1,0 +1,511 @@
+% ------------------------------------------------------------------
+% IST PhD Cover Package
+% ------------------------------------------------------------------
+% Author: Marco M. Morgado, Bruno Guerreiro
+%
+% Date: 2011/05/2011
+%
+% Files: You need the following files
+%  1) ISTPhDCover.sty
+%  2) logo_ist_web.pdf
+%
+% Package Options:
+%  \usepackage[SCR]{ISTPhDCover}
+%  \usepackage[DraftPhD]{ISTPhDCover}
+%  \usepackage[FinalPhD]{ISTPhDCover}
+%
+%
+%
+% Note: The following commands are defined, in a similar fashion to
+%   the existing commands \author, \title, and \date
+%
+%  \authordegree          ... degree of the author
+%  \major                 ... major of the thesis
+%  \advisor               ... PhD advisor
+%  \coadvisor             ... PhD co-advisor
+%  \SCmemberone           ... First member of the CAT
+%  \SCmembertwo           ... Second member of the CAT
+%  \SCmemberthree         ... Third member of the CAT
+%  \SCmemberfour          ... Fourth member of the CAT
+%  \jurypresident         ... President of the jury
+%  \jurymemberone         ... First member of the jury
+%  \jurymembertwo         ... Second member of the jury
+%  \jurymemberthree       ... Third member of the jury
+%  \jurymemberfour        ... Fourth member of the jury
+%  \jurymemberfive        ... Fifth member of the jury
+%  \jurymembersix         ... Sixth member of the jury
+%
+%  \classification        ... Final classification of the PhD
+%
+% ------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ISTPhDCover}[2011/05/10, Marco M. Morgado, Bruno J. N. Guerreiro]
+
+
+% Cover Page Commands
+% ------------------------------------------------------------------
+
+% Title of the thesis
+\let\@title\@empty
+
+% Author of the thesis
+\let\@author\@empty
+
+% Degree of the author
+\let\@authordegree\@empty
+
+% Homepage of the author
+\let\@authorhome\@empty
+
+% Major of the thesis
+\let\@major\@empty
+
+% Advisor of the thesis
+\let\@advisor\@empty
+
+% Co-advisor of the thesis
+\let\@coadvisor\@empty
+
+% Members of the CAT
+\let\@SCmemberone\@empty
+\let\@SCmembertwo\@empty
+\let\@SCmemberthree\@empty
+\let\@SCmemberfour\@empty
+
+% President of the jury
+\let\@jurypresident\@empty
+
+% Members of the jury
+\let\@jurymemberone\@empty
+\let\@jurymembertwo\@empty
+\let\@jurymemberthree\@empty
+\let\@jurymemberfour\@empty
+\let\@jurymemberfive\@empty
+\let\@jurymembersix\@empty
+
+\let\@jurymemberoneinfo\@empty
+\let\@jurymembertwoinfo\@empty
+\let\@jurymemberthreeinfo\@empty
+\let\@jurymemberfourinfo\@empty
+\let\@jurymemberfiveinfo\@empty
+\let\@jurymembersixinfo\@empty
+
+% Classification of the PhD
+\let\@classification\@empty
+
+% Date of the thesis
+\let\@date\@empty
+
+\let\@coverfigurefile\@empty
+
+
+% Command definitions
+\newcommand{\authordegree}     [1]{\gdef\@authordegree{#1}}
+\newcommand{\authorhome}       [1]{\gdef\@authorhome{#1}}
+\newcommand{\major}            [1]{\gdef\@major{#1}}
+\newcommand{\advisor}          [1]{\gdef\@advisor{#1}}
+\newcommand{\coadvisor}        [1]{\gdef\@coadvisor{#1}}
+\newcommand{\SCmemberone}      [1]{\gdef\@SCmemberone{#1}}
+\newcommand{\SCmembertwo}      [1]{\gdef\@SCmembertwo{#1}}
+\newcommand{\SCmemberthree}    [1]{\gdef\@SCmemberthree{#1}}
+\newcommand{\SCmemberfour}     [1]{\gdef\@SCmemberfour{#1}}
+\newcommand{\jurypresident}    [1]{\gdef\@jurypresident{#1}}
+\newcommand{\jurymemberone}    [1]{\gdef\@jurymemberone{#1}}
+\newcommand{\jurymembertwo}    [1]{\gdef\@jurymembertwo{#1}}
+\newcommand{\jurymemberthree}  [1]{\gdef\@jurymemberthree{#1}}
+\newcommand{\jurymemberfour}   [1]{\gdef\@jurymemberfour{#1}}
+\newcommand{\jurymemberfive}   [1]{\gdef\@jurymemberfive{#1}}
+\newcommand{\jurymembersix}    [1]{\gdef\@jurymembersix{#1}}
+\newcommand{\jurymemberoneinfo}    [1]{\gdef\@jurymemberoneinfo{#1}}
+\newcommand{\jurymembertwoinfo}    [1]{\gdef\@jurymembertwoinfo{#1}}
+\newcommand{\jurymemberthreeinfo}  [1]{\gdef\@jurymemberthreeinfo{#1}}
+\newcommand{\jurymemberfourinfo}   [1]{\gdef\@jurymemberfourinfo{#1}}
+\newcommand{\jurymemberfiveinfo}   [1]{\gdef\@jurymemberfiveinfo{#1}}
+\newcommand{\jurymembersixinfo}    [1]{\gdef\@jurymembersixinfo{#1}}
+\newcommand{\classification}   [1]{\gdef\@classification{#1}}
+\newcommand{\coverfigurefile}  [1]{\gdef\@coverfigurefile{#1}}
+
+\newcommand{\mymargin}[0]{3cm}
+\newcommand{\mywidth}[0]{15cm}
+\newcommand{\myhskip}[0]{\hspace*{0.5cm}}
+
+
+% Package textpos
+% ------------------------------------------------------------------
+\RequirePackage[absolute]{textpos}
+
+% Set origin for the textpos package
+\textblockorigin{0cm}{0cm}
+
+% default:
+\newcommand{\dateplace}[0]{27.5cm}
+%\newcommand{\coverscale}[0]{1.0}
+
+%        \scalebox{\coverscale}{ }
+
+%define title page common components
+\newcommand{\maketitlepageheader}[0]
+{
+    % IST Logo
+    % ----------------------------------------------------------------
+    \begin{textblock*}{2.5cm}(2.5cm, 1cm)
+        \noindent\includegraphics[width=2.5cm]{logo_ist_color}
+    \end{textblock*}
+
+
+    % UTL and IST Stamps
+    % ----------------------------------------------------------------
+    \begin{textblock*}{13.5cm}(5cm, 2.5cm)
+        \noindent
+        \begin{minipage}[c]{13.5cm}
+            \begin{center}
+                {\LARGE \textbf{UNIVERSIDADE T\'{E}CNICA DE LISBOA}}\\
+                \vspace{0.5cm}
+                {\LARGE \textbf{INSTITUTO SUPERIOR T\'{E}CNICO}}
+            \end{center}
+        \end{minipage}
+    \end{textblock*}
+
+%    % IST Logo with university and institute titles
+%    % ----------------------------------------------------------------
+%    \begin{textblock*}{\textwidth}(2.5cm, 2cm)
+%        \noindent\includegraphics[width=\textwidth]{logo_ist_web}
+%    \end{textblock*}
+}
+
+\newcommand{\maketitlepagefigure}[0]
+{
+    % Cover Image
+    % ----------------------------------------------------------------
+    \ifx\empty\@coverfigurefile
+    \else
+        \begin{textblock*}{\mywidth}(\mymargin, 6cm)
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    \includegraphics[height=8cm]{\@coverfigurefile}
+                \end{center}
+            \end{minipage}
+        \end{textblock*}
+    \fi
+}
+
+\newcommand{\maketitlepagetitle}[2]
+{
+    % Thesis Title
+    % ----------------------------------------------------------------
+    \begin{textblock*}{\mywidth}(\mymargin, #1)
+        \noindent
+        \begin{minipage}[c]{\mywidth}
+            \begin{center}
+                \renewcommand{\baselinestretch}{1}
+                \rmfamily\LARGE \textbf{\@title}
+                \vspace*{#2}
+            \end{center}
+        \end{minipage}
+        
+        % Thesis Author
+        % ----------------------------------------------------------------
+        \noindent
+        \begin{minipage}[c]{\mywidth}
+            \begin{center}
+                \renewcommand{\baselinestretch}{1}
+                \rmfamily\Large \textbf \@author
+                \vspace*{1cm}
+            \end{center}
+        \end{minipage}
+        
+        % Advisor and Co-advisor
+        % ----------------------------------------------------------------
+        \noindent
+        \begin{minipage}[c]{\mywidth}
+            \begin{center}
+                \rmfamily \large \textbf{Supervisor:} \@advisor\\
+                \ifx\empty\@coadvisor
+                    \else
+                    \rmfamily \Large \textbf{Co-Orientador:} \@coadvisor
+                    \fi
+            \end{center}
+        \end{minipage}
+    \end{textblock*}
+}
+
+\newcommand{\maketitlepagedate}[0]
+{
+    % Date
+    % ----------------------------------------------------------------
+    \begin{textblock*}{\mywidth}(\mymargin, \dateplace)
+        \noindent
+        \centering
+        \begin{minipage}[c]{\mywidth}
+            \begin{center}
+                \large \textbf{\@date}
+            \end{center}
+        \end{minipage}
+    \end{textblock*}
+}
+
+
+
+
+% Package Options
+% ------------------------------------------------------------------
+
+% Steering Committee Report
+\DeclareOption{SCR}
+{
+	\newcommand{\ISTPhDCoverMakeType}[0]
+	{
+        \maketitlepageheader
+        \maketitlepagefigure
+        \maketitlepagetitle{14.5cm}{1cm}
+        
+        \begin{textblock*}{13cm}(4cm, 21cm)
+            \noindent
+            \begin{minipage}[c]{13cm}
+                \begin{center}
+                    \large \textbf{Relat\'{o}rio CAT}
+                \end{center}
+            \end{minipage}
+        \end{textblock*}
+
+
+        % Thesis Steering Committee
+        % ----------------------------------------------------------------
+        \begin{textblock*}{15cm}(3cm, 23cm)
+            \noindent
+            \begin{minipage}[c]{15cm}
+                \begin{center}
+                    \textbf{Comiss\~{a}o de Acompanhamento de Tese}
+                \end{center}
+            \end{minipage}
+        \end{textblock*}
+        \begin{textblock*}{15cm}(3cm, 23.75cm)
+            \begin{minipage}[c]{15cm}
+                \begin{tabular}{ll}               %\vspace{-0.2cm}
+                    \textbf{Membros:} & \@SCmemberone    \\ %\vspace{-0.2cm}
+                                      & \@SCmembertwo    \\ %\vspace{-0.2cm}
+                                      & \@SCmemberthree  \\ %\vspace{-0.2cm}
+                                      & \@SCmemberfour   \\ %\vspace{-0.2cm}
+                \end{tabular}
+            \end{minipage}
+        \end{textblock*}
+        
+        \maketitlepagedate
+    }
+}
+
+% Draft PhD Thesis
+\DeclareOption{DraftPhD}
+{
+    \newcommand{\ISTPhDCoverMakeType}[0]
+    {
+        \maketitlepageheader
+        \maketitlepagefigure
+        \maketitlepagetitle{15cm}{1cm}
+        
+        % Phd Thesis Dissertation Stamp and Major
+        % ----------------------------------------------------------------
+        \begin{textblock*}{\mywidth}(\mymargin, 22cm)
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    \large \textbf{ Thesis specifically prepared to obtain the PhD Degree in\\
+                    \@major}
+                \end{center}
+            \end{minipage}
+            
+            \vspace*{2cm}
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    \Large \textbf{Draft}
+                \end{center}
+            \end{minipage}
+        \end{textblock*}
+        
+        \maketitlepagedate
+    }
+}
+
+% Final PhD Thesis
+\DeclareOption{FinalPhD}
+{
+    \newcommand{\ISTPhDCoverMakeType}[0]
+    {
+        \maketitlepageheader
+        \maketitlepagefigure
+        \maketitlepagetitle{14.5cm}{1cm}
+        
+        % Phd Thesis Dissertation Stamp and Major
+        % ----------------------------------------------------------------
+        \begin{textblock*}{\mywidth}(\mymargin, 19.5cm)
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    {\large \textbf{ Thesis approved in public session to obtain the PhD Degree in \\
+                    \@major}}\\
+                    \vspace*{0.5cm}
+                    {\large \textbf{ Jury final classification: \@classification}}\\
+                \end{center}
+            \end{minipage}
+            
+            \vspace*{1cm}
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    % Jury
+                    % ----------------------------------------------------
+                    {\large \textbf{Jury}}\\
+                    \vspace*{0.2cm}
+                    \begin{tabular}{ll}
+                        \textbf{Chairperson:} & \@jurypresident \\ %\vspace{-0.4cm}
+                        \multicolumn{2}{l}{ \textbf{Members of the comitee:} }  \\ %\vspace{-0.2cm}
+                                                & \@jurymemberone    \\ %\vspace{-0.2cm}
+                                                & \@jurymembertwo    \\ %\vspace{-0.2cm}
+                                                & \@jurymemberthree  \\ %\vspace{-0.2cm}
+                                                & \@jurymemberfour   \\ 
+\ifx\empty\@jurymemberfive\else \vspace{-0.0cm} & \@jurymemberfive   \\  \fi
+\ifx\empty\@jurymembersix\else \vspace{-0.0cm}  & \@jurymembersix    \\  \fi
+                    \end{tabular}
+                \end{center}
+            \end{minipage}
+        \end{textblock*}
+        
+        \maketitlepagedate
+        
+        % Force 2 white pages
+        \thispagestyle{empty}\ \clearpage
+        \thispagestyle{empty}\ \cleardoublepage
+        
+        %------------------------------------
+        % Make second cover page:
+        \maketitlepageheader
+        
+        \maketitlepagetitle{8cm}{2cm}
+        
+        % Phd Thesis Dissertation Stamp and Major
+        % ----------------------------------------------------------------
+        \begin{textblock*}{\mywidth}(\mymargin, 15cm)
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    {\large \textbf{ Thesis approved in public session to obtain the PhD Degree in \\
+                    \@major}}\\
+                    \vspace*{0.5cm}
+                    {\large \textbf{ Jury final classification: \@classification}}\\
+                \end{center}
+            \end{minipage}
+            
+            \vspace*{1cm}
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    % Jury
+                    % ----------------------------------------------------
+                    {\large \textbf{Jury}}\\
+                    \vspace*{0.5cm}
+                    \begin{tabular}{ll}
+                        \multicolumn{2}{l}{ \textbf{Chairperson:} \hspace*{0.5cm} \@jurypresident} \\ 
+                        \multicolumn{2}{l}{ \textbf{Members of the comitee:} }  \\ 
+                        \hspace*{0.7cm}         & \@jurymemberone    \\ 
+                                                & \myhskip\@jurymemberoneinfo \\
+                                                & \@jurymembertwo    \\ 
+                                                & \myhskip\@jurymembertwoinfo \\
+                                                & \@jurymemberthree  \\ 
+                                                & \myhskip\@jurymemberthreeinfo \\
+                                                & \@jurymemberfour   \\ 
+                                                & \myhskip\@jurymemberfourinfo \\
+            \ifx\empty\@jurymemberfive\else     & \@jurymemberfive   \\  \fi
+            \ifx\empty\@jurymemberfiveinfo\else & \myhskip\@jurymemberfiveinfo \\  \fi
+            \ifx\empty\@jurymembersix\else      & \@jurymembersix    \\  \fi
+            \ifx\empty\@jurymembersixinfo\else  & \myhskip\@jurymembersixinfo \\  \fi
+                    \end{tabular}
+                \end{center}
+            \end{minipage}
+            
+            \vspace*{1cm}
+            \noindent
+            \begin{minipage}[c]{\mywidth}
+                \begin{center}
+                    % Jury
+                    % ----------------------------------------------------
+                    {\large \textbf{Funding Institutions:}}\\
+                    \vspace*{0.2cm}
+                    Fundação para a Ciência e a Tecnologia
+                \end{center}
+            \end{minipage}
+        \end{textblock*}
+        
+        \maketitlepagedate
+    }
+}
+
+% Copyright options
+
+\newcommand{\ISTPhDCoverMakeCopyright}[0]{}
+\DeclareOption{CopyrightCC} % Creative commons (requires image "by-nc-sa_eu.eps")
+{
+    \renewcommand{\ISTPhDCoverMakeCopyright}[0]
+    {
+    
+    %% Copyright Page
+    \begin{textblock*}{\mywidth}(\mymargin, 23cm)
+        \noindent
+        \centering
+        \begin{minipage}[c]{\mywidth}
+            \begin{center} 
+                
+                \includegraphics[width=3cm]{by-nc-sa_eu.eps}
+                
+                \vspace{0.5cm}
+                This dissertation by 
+                \href{\@authorhome}
+                {\@author} is licensed under a 
+                \href{http://creativecommons.org/licenses/by-nc-sa/3.0}
+                {Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License}.
+
+                Permissions beyond the scope of this license may be available by contacting the author.
+                
+                To view a copy of this license, visit 
+                \url{http://creativecommons.org/licenses/by-nc-sa/3.0/} or 
+                \url{http://creativecommons.org/licenses/by-nc-sa/3.0/pt}.
+                
+            \end{center}
+        \end{minipage}
+    \end{textblock*}
+    }
+}
+\DeclareOption{CopyrightAll}
+{
+    \renewcommand{\ISTPhDCoverMakeCopyright}[0]
+    {
+    
+    %% Copyright Page
+    \begin{textblock*}{\mywidth}(\mymargin, 25cm)
+        \noindent
+        \centering
+        \begin{minipage}[c]{\mywidth}
+            \begin{center} 
+                Copyright, \href{\@authorhome}{\@author}, all rights reserved.
+            \end{center}
+        \end{minipage}
+    \end{textblock*}
+    }
+}
+
+% Process Options
+\ProcessOptions\relax
+
+
+% Command \maketitle
+% ------------------------------------------------------------------
+\renewcommand{\maketitle}
+{
+    \ISTPhDCoverMakeType
+
+    % Force 2 white pages (put copyright if option selected
+    \thispagestyle{empty}\ \clearpage
+    \ISTPhDCoverMakeCopyright
+    \thispagestyle{empty}\ \cleardoublepage
+}

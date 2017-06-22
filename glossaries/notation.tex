@@ -1,0 +1,635 @@
+
+%-------------------------------------------------------------------------------
+%   Basic Sets
+%-------------------------------------------------------------------------------
+
+
+\newglossaryentry{sym_set_N}
+{
+  name={\ensuremath{\N}},
+  description={set of natural numbers},
+  sort = _05_set_1_N,
+  type = notation
+}
+
+\newglossaryentry{sym_set_Z}
+{
+  name={\ensuremath{\Z}},
+  description={set of integer numbers},
+  sort = _05_set_2_Z,
+  type = notation
+}
+
+\newglossaryentry{sym_set_R}
+{
+  name={\ensuremath{\R}},
+  description={set of real numbers},
+  sort = _05_set_3_R,
+  type = notation
+}
+
+\newglossaryentry{sym_set_C}
+{
+  name={\ensuremath{\C}},
+  description={set of complex numbers},
+  sort = _05_set_3_C,
+  type = notation
+}
+
+\newglossaryentry{sym_set_Rn}
+{
+  name={\ensuremath{\R^n}},
+  description={set of $n$-dimensional vectors with real entries},
+  sort = _05_set_4_Rn,
+  type = notation
+}
+
+\newglossaryentry{sym_set_Rnm}
+{
+  name={\ensuremath{\R^{n\times m}}},
+  description={set of $n \times m$ matrices with real entries},
+  sort = _05_set_5_Rnm,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Notation
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_type_scalar}
+{
+  name={\ensuremath{a,A,\alpha,\Gamma}},
+  description={scalar variable or constant},
+  sort = _10_type_1_scalar,
+  type = notation
+}
+
+\newglossaryentry{sym_type_vector}
+{
+  name={\ensuremath{\bvec{a},\gvec{\alpha}}},
+  description={vector variable or constant},
+  sort = _10_type_2_vector,
+  type = notation
+}
+
+\newglossaryentry{sym_type_vector_elem}
+{
+  name={\ensuremath{a_i}},
+  description={element $i$ of a vector $\bvec{a}\in\R^n$},
+  sort = _10_type_3_vector_elem,
+  type = notation
+}
+
+\newglossaryentry{sym_type_matrix}
+{
+  name={\ensuremath{\mat{A},\gmat{\Gamma}}},
+  description={matrix variable or constant},
+  sort = _10_type_4_matrix,
+  type = notation
+}
+
+\newglossaryentry{sym_type_matrix_elem}
+{
+  name={\ensuremath{a_{ij}}},
+  description={element of a matrix $\mat{A}\in\R^{n\times m}$, located at row $i$ and column $j$},
+  sort = _10_type_5_matrix_elem,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Constants
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_const_zeros}
+{
+  name={\ensuremath{\zeros{n}{m}}},
+  description={matrix of zeros with dimensions $n\times m$},
+  sort = _15_const_1_zeros,
+  type = notation
+}
+
+\newglossaryentry{sym_const_ones}
+{
+  name={\ensuremath{\ones{n}{m}}},
+  description={matrix of ones with dimensions $n\times m$},
+  sort = _15_const_2_ones,
+  type = notation
+}
+
+\newglossaryentry{sym_const_eye}
+{
+  name={\ensuremath{\eye{n}}},
+  description={identity matrix of dimensions $n\times n$},
+  sort = _15_const_3_eye,
+  type = notation
+}
+
+\newglossaryentry{sym_const_zero}
+{
+  name={\ensuremath{\zero}},
+  description={matrix or vector of zeros, with dimensions obvious from context},
+  sort = _15_const_4_zero,
+  type = notation
+}
+
+\newglossaryentry{sym_const_one}
+{
+  name={\ensuremath{\one}},
+  description={matrix or vector of ones, with dimensions obvious from context},
+  sort = _15_const_5_one,
+  type = notation
+}
+
+\newglossaryentry{sym_const_eyefunc}
+{
+  name={\ensuremath{\eyefunc}},
+  description={identity matrix with dimensions obvious from context},
+  sort = _15_const_6_eyefunc,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Operators
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_op_transpose}
+{
+  name={\ensuremath{(.)^T}},
+  description={transpose operator of a vector or matrix},
+  sort = _16_op_000_transpose,
+  type = notation
+}
+
+\newglossaryentry{sym_op_conj_transp}
+{
+  name={\ensuremath{(.)^H}},
+  description={conjugate transpose operator of a vector or matrix},
+  sort = _16_op_010_conj_transp,
+  type = notation
+}
+
+\newglossaryentry{sym_op_inverse}
+{
+  name={\ensuremath{(.)^{-1}}},
+  description={matrix inverse operator},
+  sort = _16_op_020_inverse,
+  type = notation
+}
+
+\newglossaryentry{sym_op_sign}
+{
+  name={\ensuremath{\sign{.}}},
+  description={signum function of the elements of its argument, possibly a vector or matrix},
+  sort = _16_op_030_abs,
+  type = notation
+}
+
+\newglossaryentry{sym_op_abs}
+{
+  name={\ensuremath{\abs{.}}},
+  description={absolute value operator, for scalar arguments},
+  sort = _16_op_035_abs,
+  type = notation
+}
+
+\newglossaryentry{sym_op_det}
+{
+  name={\ensuremath{\determ{\mat{A}}}},
+  description={matrix determinant operator, $\mat{A} \in \R^{n\times n}$},
+  sort = _16_op_040_determinant,
+  type = notation
+}
+
+\newglossaryentry{sym_op_eigmax}
+{
+  name={\ensuremath{\eigmax{.}}},
+  description={maximum eigenvalue of the argument matrix},
+  sort = _16_op_044_eigmax,
+  type = notation
+}
+
+\newglossaryentry{sym_op_eigmin}
+{
+  name={\ensuremath{\eigmin{.}}},
+  description={maximum eigenvalue of the argument matrix},
+  sort = _16_op_047_eigmin,
+  type = notation
+}
+
+\newglossaryentry{sym_op_trace}
+{
+  name={\ensuremath{\tr{.}}},
+  description={trace of a matrix operator},
+  sort = _16_op_050_trace,
+  type = notation
+}
+
+\newglossaryentry{sym_op_vec}
+{
+  name={\ensuremath{\vc{.}}},
+  description={vectorization of a matrix operator, such that, 
+  if $\vc{\mat{A}} = \bvec{a}$ with $\mat{A} \in \R^{n\times m}$, then $\bvec{a} \in \R^{n\,m\times 1}$},
+  sort = _16_op_060_vec,
+  type = notation
+}
+
+\newglossaryentry{sym_op_kron}
+{
+  name={\ensuremath{\otimes}},
+  description={Kronecker matrix product operator},
+  sort = _16_op_070_kron,
+  type = notation
+}
+
+\newglossaryentry{sym_op_mat_posdef}
+{
+  name={\ensuremath{ \mat{A} \succ \zero }},
+  description={positive definite matrix, in the sense that 
+                $\bvec{x}^T\,\mat{A}\,\bvec{x} > 0$ for all $\bvec{x} \neq 0$; 
+                a positive semidefinite matrix is denoted as $\mat{A} \succeq \zero$},
+  sort = _16_op_080_mat_posdef,
+  type = notation
+}
+
+\newglossaryentry{sym_op_mat_negdef}
+{
+  name={\ensuremath{ \mat{A} \prec \zero }},
+  description={negative definite matrix, in the sense that 
+                $\bvec{x}^T\,\mat{A}\,\bvec{x} < 0$ for all $\bvec{x} \neq 0$; 
+                a negative semidefinite matrix is denoted as $\mat{A} \succeq \zero$},
+  sort = _16_op_090_mat_negdef,
+  type = notation
+}
+
+\newglossaryentry{sym_op_mat_greater}
+{
+  name={\ensuremath{\mat{A} \succ \mat{B} }},
+  description={matrix $\mat{A}$ is greater than matrix $\mat{B}$, in the sense 
+                that $\mat{A} - \mat{B} \succ 0$ is positive definite; 
+                similar definitions can be inferred for $\mat{A} \prec \mat{B}$,
+                $\mat{A} \succeq \mat{B}$, and $\mat{A} \preceq \mat{B}$ },
+  sort = _16_op_100_kron,
+  type = notation
+}
+
+\newglossaryentry{sym_op_svd}
+{
+  name={\ensuremath{\svd{.}}},
+  description={singular value decomposition of the argument matrix, such that, 
+    $\svd{\mat{A}} = \mat{U}\,\mat{D}\,\mat{V}^T$, where $\mat{D}$ is a diagonal matrix whereas 
+    $\mat{U}$ and $\mat{V}$ are unitary matrices},
+  sort = _16_op_110_svd,
+  type = notation
+}
+
+\newglossaryentry{sym_op_diag}
+{
+  name={\ensuremath{\rm{diag}(\mat{A}_1, \ldots, \mat{A}_n)}},
+  description={block diagonal matrix composed of matrix elements $\mat{A}_1$ to $\mat{A}_n$},
+  sort = _16_op_120_diag,
+  type = notation
+}
+
+\newglossaryentry{sym_op_symmcomp}
+{
+  name={\ensuremath{\symmcomp{\mat{A}} = \frac{1}{2}(\mat{A} + \mat{A}^T)}},
+  description={symmetric component of a square matrix},
+  sort = _16_op_130_symmcomp,
+  type = notation
+}
+
+\newglossaryentry{sym_op_skewcomp}
+{
+  name={\ensuremath{\skewcomp{\mat{A}} = \frac{1}{2}(\mat{A} - \mat{A}^T)}},
+  description={skew-symmetric component of a square matrix},
+  sort = _16_op_140_skewcomp,
+  type = notation
+}
+
+\newglossaryentry{sym_op_skewmatrix}
+{
+  name={\ensuremath{\matskew{\bvec{a}}}},
+  description={skew-symmetric matrix function, such that, if $\bvec{a} = a \in \R$ 
+                then $\matskew{a} = \begin{bmatrix} 0 & -a \\ a & 0 \\ \end{bmatrix}$, 
+                and if $\bvec{a} \in \R^{3}$ then $\matskew{\bvec{a}} = \begin{bmatrix} 
+                0 & -a_3 & a_2 \\ a_3 & 0 & -a_1 \\ -a_2 & a_1 & 0 \\ \end{bmatrix}$
+                and can be used to represent the cross product between two vectors as 
+                $\matskew{\bvec{a}}\bvec{b} = \bvec{a} \times \bvec{b}$, where $\bvec{b} \in \R^{3}$ too},
+  sort = _16_op_150_skewmatrix,
+  type = notation
+}
+
+\newglossaryentry{sym_op_unskewmatrix}
+{
+  name={\ensuremath{\matunskew{\mat{A}}}},
+  description={skew-symmetric matrix inverse function, such that, 
+                $\matunskew{\mat{A}} = a \in \R$, if $\mat{A}$ is a $2\times 2$ 
+                skew-symmetric matrix, and $\matunskew{\mat{A}} = \bvec{a} \in \R^3$, if 
+                $\mat{A}$ is a $3\times 3$ skew-symmetric matrix},
+  sort = _16_op_155_unskewmatrix,
+  type = notation
+}
+
+\newglossaryentry{sym_op_convhull}
+{
+  name={\ensuremath{\convhull{.}}},
+  description={convex hull operator},
+  sort = _17_op_08_convhull,
+  type = notation
+}
+
+\newglossaryentry{sym_op_union}
+{
+  name={\ensuremath{\setunion}},
+  description={union of two sets operator},
+  sort = _17_op_09_union,
+  type = notation
+}
+
+\newglossaryentry{sym_op_orth}
+{
+  name={\ensuremath{(.)^\perp}},
+  description={orthogonal component operator},
+  sort = _17_op_10_orth,
+  type = notation
+}
+
+\newglossaryentry{sym_op_tang}
+{
+  name={\ensuremath{(.)^\top}},
+  description={tangent component operator},
+  sort = _17_op_11_tang,
+  type = notation
+}
+
+\newglossaryentry{sym_op_define}
+{
+  name={\ensuremath{:=}},
+  description={quantity is defined as},
+  sort = _17_op_12_define,
+  type = notation
+}
+
+\newglossaryentry{sym_op_identified}
+{
+  name={\ensuremath{\simeq}},
+  description={space is identified with },
+  sort = _17_op_13_identified,
+  type = notation
+}
+
+\newglossaryentry{sym_op_int_prod}
+{
+  name={\ensuremath{\intprod{.}{.}}},
+  description={internal product operator or canonical metric of a given space},
+  sort = _18_op_1_int_prod,
+  type = notation
+}
+
+\newglossaryentry{sym_op_ext_prod}
+{
+  name={\ensuremath{\extprod{.}{.}}},
+  description={external product operator},
+  sort = _18_op_2_ext_prod,
+  type = notation
+}
+
+\newglossaryentry{sym_op_expectation}
+{
+  name={\ensuremath{\expect{.}}},
+  description={expectation operator for stochastic variables},
+  sort = _19_op_1_expectation,
+  type = notation
+}
+
+\newglossaryentry{sym_op_covariance}
+{
+  name={\ensuremath{\covar{\bvec{a}\bvec{b}}}},
+  description={covariance matrix between two generic stochastic vectors 
+                $\bvec{a},\bvec{b} \in \R^n$, defined by 
+                $\covar{\bvec{a}\,\bvec{b}} = \expect{(\bvec{a}-\expect{\bvec{a}})(\bvec{b}-\expect{\bvec{b}})^T}$, 
+                and denoted by $\covar{\bvec{a}}$ if $\bvec{a}=\bvec{b}$},
+  sort = _19_op_2_covariance,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Other Sets
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_set_MnR}
+{
+  name={\ensuremath{\mrmn{n}\,,\; \R^{n\times n}}},
+  description={set of $n \times n$ matrices with real entries},
+  sort = _21_set_1_Rnn,
+  type = notation
+}
+
+\newglossaryentry{sym_set_On}
+{
+  name={\ensuremath{\orth{n}}},
+  description={group of $n \times n$ orthogonal matrices, 
+                $\orth{n} = \{\mat{U} \in \mrmn{n}: \mat{U}\,\mat{U}^T = \eye{n}\}$ },
+  sort = _21_set_2_On,
+  type = notation
+}
+
+\newglossaryentry{sym_set_SOn}
+{
+  name={\ensuremath{\so{n}}},
+  description={special orthogonal group or group of $n \times n$ proper rotation matrices, 
+                $\so{n} = \{\rot{}{} \in \mrmn{n}: \rot{}{}\,\rot{}{}^T = \eye{n}, \determ{\rot{}{}} = 1\}$ },
+  sort = _21_set_3_SOn,
+  type = notation
+}
+
+\newglossaryentry{sym_set_SEn}
+{
+  name={\ensuremath{\se{n}}},
+  description={special Euclidean group of rigid body transformations in 
+                $n$-dimensional space, where each element $(\rot{}{},\pos{}{})$ 
+                is composed of a proper rotation matrix and a translation vector, 
+                such that 
+                $\se{n} = \{\rot{}{},\pos{}{}: \rot{}{} \in \so{n}, \pos{}{} \in \R^n\}$ },
+  sort = _21_set_4_SEn,
+  type = notation
+}
+
+\newglossaryentry{sym_set_Kn}
+{
+  name={\ensuremath{\kr{n}}},
+  description={set of $n \times n$ skew-symmetric matrices with real entries, 
+                $\kr{n} = \{\mat{K} \in \mrmn{n}: \mat{K} = -\mat{K}^T\}$ },
+  sort = _21_set_5_Kn,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Reference frames
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_ref_I}
+{
+  name={\ensuremath{\frameI}},
+  description={inertial reference frame},
+  sort = _30_ref_1_I,
+  type = notation
+}
+
+\newglossaryentry{sym_ref_E}
+{
+  name={\ensuremath{\frameE}},
+  description={local earth-fixed reference frame},
+  sort = _30_ref_2_E,
+  type = notation
+}
+
+\newglossaryentry{sym_ref_B}
+{
+  name={\ensuremath{\frameB}},
+  description={body-fixed reference frame, rigidly attached to the vehicle, with origin not necessarily at the vehicle's center of mass},
+  sort = _30_ref_3_B,
+  type = notation
+}
+
+\newglossaryentry{sym_ref_CM}
+{
+  name={\ensuremath{\frameCM}},
+  description={body-fixed reference frame, with origin at the vehicle's center of mass},
+  sort = _30_ref_4_CM,
+  type = notation
+}
+
+\newglossaryentry{sym_ref_H}
+{
+  name={\ensuremath{\frameH}},
+  description={horizontally projected body-fixed reference frame},
+  sort = _30_ref_3_H,
+  type = notation
+}
+
+\newglossaryentry{sym_ref_L}
+{
+  name={\ensuremath{\frameL}},
+  description={LADAR-fixed reference frame, rigidly attached to the LADAR sensor 
+                and with origin at the laser's firing point and $z$-axis 
+                indicating the zero scanning angle, which is defined as a 
+                rotation about the $y$-axis},
+  sort = _30_ref_4_L,
+  type = notation
+}
+
+\newglossaryentry{sym_ref_LB}
+{
+  name={\ensuremath{\frameLB}},
+  description={LASER beam reference frame, with origin at the firing point, 
+                $y$-axis collinear with that of frame $\{L\}$, and $z$-axis 
+                oriented opposite to the direction of the laser beam},
+  sort = _30_ref_5_LB,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Rotation Matrices
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_rot_b2a}
+{
+  name={\ensuremath{\rot{A}{B}}},
+  description={rotation matrix in $\so{n}$ from reference frame \frames{B} to 
+                reference frame \frames{A}, with $n$ obvious from the context},
+  sort = _40_rot_05_a2b,
+  type = notation
+}
+
+\newglossaryentry{sym_rot_x}
+{
+  name={\ensuremath{\rot{}{}_{x}(.)}},
+  description={rotation matrix in $\som$ about the $x$-axis of the argument angle},
+  sort = _40_rot_10_x,
+  type = notation
+}
+
+\newglossaryentry{sym_rot_y}
+{
+  name={\ensuremath{\rot{}{}_{y}(.)}},
+  description={rotation matrix in $\som$ about the $y$-axis of the argument angle},
+  sort = _40_rot_11_y,
+  type = notation
+}
+
+\newglossaryentry{sym_rot_z}
+{
+  name={\ensuremath{\rot{}{}_{z}(.)}},
+  description={rotation matrix in $\som$ about the $z$-axis of the argument angle},
+  sort = _40_rot_12_z,
+  type = notation
+}
+
+%-------------------------------------------------------------------------------
+%   Norms and Performance Norms....
+%-------------------------------------------------------------------------------
+
+\newglossaryentry{sym_op_norm}
+{
+  name={\ensuremath{ \norm{\bvec{a}}_p = \left(\sum_{i = 1}^{n} \abs{a_i}^p\right)^{\frac{1}{p}}}},
+  description={$p$-norm operator of a vector $\bvec{a} \in \R^n$, where the 
+                subscript $p$ is omitted whenever clear from context, and for 
+                $p = \infty$ it can be seen that $\norm{\bvec{a}}_\infty = \max_{i = 1} \abs{a_i}$ },
+  sort = _45_norm_1_p_norm,
+  type = notation
+}
+
+\newglossaryentry{sym_op_mat_norm}
+{
+  name={\ensuremath{ \norm{\mat{A}}_p = \left(\sum_{i = 1}^{n}\sum_{j = 1}^{m} \abs{a_{ij}}^p\right)^{\frac{1}{p}}}},
+  description={$p$-norm operator of a matrix $\mat{A} \in \R^{n\times m}$, where 
+                the subscript $p$ is omitted whenever clear from context; 
+                for $p = 2$ yields the well-known Frobenius norm 
+                $\norm{\mat{A}}\low{F}^2 = \tr{\mat{A}^H\,\mat{A}}$},
+  sort = _45_norm_2_mat_p_norm,
+  type = notation
+}
+
+\newglossaryentry{sym_op_Lp_norm}
+{
+  name={\ensuremath{ \normL{p}{\bvec{u}} = \left( \int_{0}^{\infty} \norm{\bvec{u}(t)}^p \right)^{\frac{1}{p}} }},
+  description={$\set{L}_p$-norm operator, where $\bvec{u}(t)$ is a piecewise continuous 
+                function mapping $[0,\infty)$ into $\R^n$, for which the 
+                $\set{L}_p$-norm exists and is finite; for $p = \infty$ it can be seen that 
+                $\normL{\infty}{\bvec{u}} = \sup_{t\geq0} \norm{\bvec{u}(t)}$ },
+  sort = _45_norm_3_Lp_norm,
+  type = notation
+}
+
+\newglossaryentry{sym_op_Lpn}
+{
+  name={\ensuremath{ \set{L}_p^n }},
+  description={set of piecewise continuous functions mapping $[0,\infty)$ into 
+                $\R^n$, for which the $\set{L}_p$-norm exists and is finite},
+  sort = _45_norm_4_Lpn,
+  type = notation
+}
+
+\newglossaryentry{sym_norm_H2}
+{
+  name={\ensuremath{ \normH{2}{ \mat{T}_{zw} } }},
+  description={$\set{H}_2$-norm (also called $\set{L}_2$-gain or 
+                $\set{L}_2/\set{L}_\infty$ induced norm) of the transfer function operator 
+                $\mat{T}_{zw}: \set{L}_2^n \rightarrow \set{L}_\infty^m$,
+                from the input signal $\bvec{w}(t)$ to the output signal $\bvec{z}(t)$},
+  sort = _50_norms_10_H2,
+  type = notation
+}
+
+\newglossaryentry{sym_norm_Hinf}
+{
+  name={\ensuremath{\normH{\infty}{ \mat{T}_{zw} } }},
+  description={$\set{H}_\infty$-norm (also called $\set{L}_\infty$-gain or 
+                $\set{L}_2/\set{L}_2$ induced norm) of the transfer function operator 
+                $\mat{T}_{zw}: \set{L}_2^n \rightarrow \set{L}_2^m$,
+                from the input signal $\bvec{w}(t)$ to the output signal $\bvec{z}(t)$},
+  sort = _50_norms_11_Hinf,
+  type = notation
+}
+

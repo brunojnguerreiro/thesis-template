@@ -1,0 +1,17 @@
+##---------------------------------------------------
+## Remove autosaves, pdf files, and other folders
+##---------------------------------------------------
+
+# older auxiliary files
+old/
+
+# pdf files
+*.pdf
+
+# latex auxiliary files
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.synctex.gz

@@ -1,0 +1,82 @@
+\chapter[Sensor-based SLAM]{%
+    \begin{minipage}[c]{0.78\textwidth}
+        \begin{flushright} 
+            Sensor-based Simultaneous \\
+            Localization and Mapping
+        \end{flushright} 
+    \end{minipage}
+%\parbox[t]{0.9\textwidth}{\flushright Sensor-based Simultaneous Localization and Mapping}
+}
+%Sensor-based Simultaneous Localization and Mapping}
+\label{ch:slam}
+
+This chapter presents the design, observability conditions, convergence analysis, 
+and experimental validation of a sensor-based filter for \gls{acronym_slam}, 
+with \gls{acronym_gas} error dynamics. 
+This filter has straightforward application to \glspl{acronym_uav} in \gls{acronym_gps}-denied 
+environments, using acceleration and angular rate inertial measurements, a laser 
+scanning device, and an altitude sensor. 
+The \gls{acronym_slam} problem is formulated in a sensor-based framework and modified 
+in such a way that the underlying system structure can be regarded as \gls{acronym_ltv} 
+for observability and filter design purposes, from which a linear Kalman filter with 
+\gls{acronym_gas} error dynamics follows naturally. 
+%% second part of the chapter 
+Furthermore, an online earth-fixed trajectory and map estimation algorithm 
+is developed using a computationally efficient and numerically robust methodology. 
+This algorithm follows from the estimation solution provided by the sensor-based 
+\gls{acronym_slam} filter, by formulating an optimization problem with a closed-form 
+solution. 
+The uncertainty description of this solution is also derived resorting to perturbation 
+theory, both for the earth-fixed trajectory and map. 
+%% results 
+The performance and consistency validation of the proposed sensor-based \gls{acronym_slam} 
+filter and the earth-fixed trajectory and map estimation method are successfully assessed 
+with real data, acquired indoors using a quadrotor instrumented platform.
+
+% Brief History of SLAM
+Over the past decades the research community has devoted tremendous 
+effort in the field of probabilistic \gls{acronym_slam}. 
+The seminal works that established the statistical foundations for describing the 
+relationships between landmarks and their correlations include \cite{smith:1986},
+\cite{durrant:1988}, and \cite{smith:1990}. 
+Further research showed that a 
+full and consistent solution to this problem would require all the vehicle 
+pose and map variables to be considered in a single, and potentially large, state vector. 
+This requirement made the problem intrinsically nonlinear and one of the 
+technical solutions emerging from this challenge was to use the much celebrated
+\gls{acronym_ekf} \cite{csorba:1996,csorba:1997}. 
+A detailed survey and tutorial on \gls{acronym_slam} can be found in \cite{durrant:2006}, 
+\cite{bailey:2006}, \cite{thrun:2005}, and references therein, which include a significant 
+number of successful implementations of \gls{acronym_slam} algorithms in real world scenarios.
+The association of measured and state landmarks is one of 
+the major sources of inconsistency in \gls{acronym_slam} algorithms and considerable effort 
+has been put into this issue.
+Several strategies have emerged, namely, the simplistic nearest neighbor (NN) 
+validation gating, \gls{acronym_jcbb} \cite{neira:2001}, \gls{acronym_ccda} 
+\cite{bailey:2002}, and other strategies, such as multi-hypothesis data 
+association or particle filters, that imply changes or a different algorithm. 
+%Another strategy to achieve better consistency and to reduce the computational
+%complexity of the \gls{acronym_slam} algorithm is the use of submaps \cite{tardos:2002}.
+
+An instrumented quadrotor was hand-driven along a path of about 60 meters in an 
+indoor environment with a loop, as shown in Figure \ref{slam:fig:map}, at an 
+average speed of 0.4 m/s.
+The trajectory described by the vehicle starts near the middle 
+%, at position $(-2.75,-3.67)$ m of the last body frame
+and circulates counterclockwise until some of the first landmarks detected are once 
+again visible, at the lower right corner.
+This custom built quadrotor \gls{acronym_uav}, property of the \gls{acronym_isr}, is 
+equipped with a MEMSENS nanoIMU, a Maxbotix XL sonar for altitude measurements, and a 
+Hokuyo UTM-30LX laser scanning device that provides horizontal profiles of the surroundings.
+\newcommand{\figNameA}[0]{20110729_run20111208-1135_cardume_part0161}
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{\figNameA_MapI_blueprint_MD}\\
+    \caption[Map and trajectory in the earth-fixed reference frame.]
+            {   Map and trajectory in the earth-fixed reference frame, obtained 
+                using an optimization-based trajectory and map estimation
+                algorithm, with the floor blueprint in the background.}
+    \label{slam:fig:map}
+\end{figure}
+
+

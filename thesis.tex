@@ -1,0 +1,557 @@
+%-------------------------------------------------------------------
+% DOCUMENT CLASS - book for PhD Thesis
+%-------------------------------------------------------------------
+\documentclass[a4paper, 11pt]{book}
+
+\usepackage{ifthen} 
+\newboolean{bookprint} 
+\setboolean{bookprint}{false}
+%\setboolean{bookprint}{true}
+
+% rubber command to use within linux (using dvi2ps and ps2pdf):
+% $ rubber --pdf thesis.tex && makeindex thesis && makeglossaries thesis && rubber --inplace --maxerr -1 --short --force --warn all --ps --pdf thesis.tex
+% or 
+% $ rubber --pdf thesis.tex 
+% $ makeindex thesis 
+% $ makeglossaries thesis 
+%%%% $ rubber --inplace --maxerr -1 --short --force --warn all --pdf thesis.tex
+% $ rubber --maxerr -1 --warn all --verbose --pdf thesis.tex 
+
+%\includeonly{parts/introduction,parts/chapter_inertialnav,parts/appendix_A}
+%\includeonly{parts/introduction,parts/chapter_inertialnav}
+%\includeonly{parts/introduction}
+
+%-------------------------------------------------------------------
+% PDF Synctex
+%-------------------------------------------------------------------
+\usepackage{pdfsync} \synctex=1
+%\usepackage[novbox]{pdfsync} \synctex=1
+\usepackage{microtype} % Makes pdf look better
+
+
+%-------------------------------------------------------------------
+% Page setup
+%-------------------------------------------------------------------
+\ifthenelse{\boolean{bookprint}}{
+    % For book print
+    \usepackage[paperwidth=170mm, paperheight=235mm]{geometry} 
+
+% Playing with page sizes in matlab (from A4 to 17x23.5 cm):
+% >> szs = [210,297;170,235;214.85,297]; rts = szs(:,2)./szs(:,1) = [ 1.4143;    1.3824;    1.3824]
+
+    % Vertical (details on http://en.wikibooks.org/wiki/LaTeX/Page_Layout)
+    \voffset -1.54cm        % top edge at 2.54cm - 1.54cm = 1cm
+    \topmargin 0.25cm       % header at 1cm +0.25cm = 1.25cm
+    \headheight 0.50cm      % header finishes at 1.25cm + 0.50cm = 1.75cm
+    \headsep 0.25cm          % text starts at 1.75cm + 0.25cm = 2cm
+    \footskip 0.75cm
+    % Horizontal
+    \hoffset -1.54cm        % side edge at 2.54cm - 1.54cm = 1cm
+    \oddsidemargin 1.5cm    % odd margin at 1cm + 1.5cm = 2.5cm
+    \evensidemargin 0.5cm   % even margin at 1cm + 0.5cm = 1.5cm
+
+    \marginparsep 0cm
+    \marginparwidth 0cm
+
+    % Global text dimensions
+    \textwidth 13cm
+    \textheight 19.5cm
+    
+}{ 
+    % For A4 thesis
+%    \renewcommand{\baselinestretch}{1.5}
+
+    \setlength{\headheight}{16pt}
+    \hoffset 0cm
+    \voffset 0cm
+    \oddsidemargin 0.71cm
+    \evensidemargin 0.04cm
+    \marginparsep 0cm
+    \topmargin -0.25cm
+    \textwidth 15cm
+    \textheight 23.5cm
+    
+}
+
+\newcommand{\myfancychapter}[0]{0.13\textheight}
+\newcommand{\myfancymainchapter}[0]{0.38\textheight}
+\newcommand{\myfancymainright}[0]{\textwidth+\oddsidemargin+1in+\hoffset}
+%\newcommand{\myfancymainright}[0]{.9\paperwidth}
+
+\ifthenelse{\boolean{bookprint}}{
+    \newcommand\MyHuge{\huge}
+}{
+    \newcommand\MyHuge{\Huge}
+}
+\newcommand\MyHUGE{\fontsize{110}{120}\selectfont}
+
+%%-------------------------------------------------------------------
+%% Page setup
+%%-------------------------------------------------------------------
+%\setlength{\headheight}{16pt}
+%\hoffset 0cm
+%\voffset 0cm
+%\oddsidemargin 0.71cm
+%\evensidemargin 0.04cm
+%\marginparsep 0cm
+%\topmargin -0.25cm
+%\textwidth 15cm
+%\textheight 23.5cm
+
+%-------------------------------------------------------------------
+% Figure width setup
+%-------------------------------------------------------------------
+\newcommand{\figurewidth}{3.5in}
+\newcommand{\subfigurewidth}{.48\columnwidth}
+
+%-------------------------------------------------------------------
+% PACKAGES
+%-------------------------------------------------------------------
+
+%\usepackage[DraftPhD,CopyrightCC]{ISTPhDCover} % Cover Page
+%\usepackage[DraftPhD,CopyrightAll]{ISTPhDCover} % Cover Page
+\usepackage[DraftPhD]{ISTPhDCover} % Cover Page
+%\usepackage[FinalPhD]{ISTPhDCover} % Cover Page
+\usepackage[utf8]{inputenc} % Allow portuguese characters (for linux)
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[small]{caption}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\allowdisplaybreaks[1]  % allow display breaks in equations, but avoid if possible.
+\usepackage{multirow}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{ifthen}
+\usepackage{hyphenat}
+\usepackage{afterpage}
+%\usepackage[shortcuts]{extdash}
+%\def\hyph{-\penalty0\hskip0pt\relax}
+\usepackage{empheq}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{thmtools}
+
+\usepackage{enumitem}
+\setdescription{leftmargin=\parindent,labelindent=\parindent}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc,positioning,matrix}
+
+% define colors of links for printing or for ebook:
+\ifthenelse{\boolean{bookprint}}{
+    \definecolor{LinkColor}{rgb}{0.0,0.0,0.0}
+}{
+    \definecolor{LinkColor}{rgb}{0.3,0.3,0.3}
+}
+
+\usepackage[linktocpage,
+            backref=section,
+            colorlinks,
+            allcolors=LinkColor
+            ]
+            {hyperref} 
+            % linktocpage allows for line break in TOC and LOF
+\hypersetup{
+pdftitle={PhD Thesis - Sensor-based Control and Localization of Autonomous Vehicles in Unknown Environments},
+pdfauthor={Bruno J. N. Guerreiro}, 
+pdfkeywords={unknown environments,
+    autonomous helicopters,
+    laser sensors,
+    trajectory tracking,
+    model predictive control,
+    sensor-based control and localization,
+    calibration,
+    simultaneous localization and mapping,
+    observability,
+    global asymptotic stability}, 
+bookmarksnumbered
+}
+\usepackage{bookmark} % handles the encoding in the .out file
+
+%\usepackage[right]{showlabels} \renewcommand{\showlabelfont}{\tiny} %show item labels
+%\usepackage[notcite,notref]{showkeys} %alternative to showlabels
+
+\usepackage{mathtools} % use the most recent version of mathtools, so that noeqref is defined
+%noeqref is required  because mathtools sometimes doesn't account for equations references 
+%with \ref, and \ref is used when referencing a collection of equations (\ref{}, \ref{}..., \ref{})
+\mathtoolsset{showonlyrefs} % show equation number only for referenced equations
+\usepackage[printonlyused]{acronym} % This package is most usefull for acronyms. The package garantees that all acronyms definitions are given at the first usage. IMPORTANT: do not use acronyms in titles/captions; otherwise the definition will appear on the table of contents.
+\usepackage{nicefrac}
+\usepackage[tight,footnotesize]{subfigure}
+\usepackage{booktabs} % Table lines
+\newcommand {\otoprule}{\midrule [\heavyrulewidth]}
+
+\usepackage[sort]{natbib} % sort citations by ascending order
+\usepackage{url}
+\usepackage[resetlabels]{multibib} % Page of Author's Publications
+\newcites{mypub}{List of Publications}
+%\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
+\usepackage{doi}
+
+\usepackage{tocbibind} % includes the bibliography and others in the table of contents
+
+%%-------------------------------------------------------------------
+%% Macros
+%%-------------------------------------------------------------------
+\input{AllMacros}
+
+% increase TOC, LOT and LOF number box
+\makeatletter
+\renewcommand{\@pnumwidth}{2em} 
+\renewcommand{\@tocrmarg}{3em}
+\makeatother
+
+%-------------------------------------------------------------------
+% Glossaries setup
+%-------------------------------------------------------------------
+% Glossaries of Notation and Acronyms
+\usepackage[toc,acronym,shortcuts,style=altlist,nomain]{glossaries}
+
+% Define new glossary types
+\newglossary[nlg]{notation}{not}{ntn}{Notation}
+%\newglossary[slg]{symbols}{sym}{sbl}{List of Symbols}
+
+\input{./glossaries/acronyms.tex}
+\input{./glossaries/notation.tex}
+%\input{./glossaries/symbols.tex}
+
+% rubber: onchange ./thesis.glo 'makeglossaries thesis'
+% rubber: onchange ./glossaries/acronyms.tex 'makeglossaries thesis'
+% rubber: onchange ./glossaries/notation.tex 'makeglossaries thesis'
+% rubber: watch thesis.glo
+% rubber: watch thesis.acn
+% rubber: watch thesis.ntn
+
+\makeglossaries
+
+%-------------------------------------------------------------------
+% Index setup
+%-------------------------------------------------------------------
+\usepackage{makeidx}
+\makeindex
+
+%-------------------------------------------------------------------
+% Graphics setup
+%-------------------------------------------------------------------
+\DeclareGraphicsExtensions{.eps}
+\graphicspath{  {./parts/figures/}
+                {./parts/samplechapter/figures/} }
+
+%-------------------------------------------------------------------
+% Fancy Page Headers
+%-------------------------------------------------------------------
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} 
+\fancyhead[LE]{\bfseries\nouppercase{\leftmark}}
+\fancyhead[RO]{\bfseries\nouppercase{\rightmark}}
+\fancyfoot[LE,RO]{\hyperlink{contents}{\bfseries\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\addtolength{\headheight}{0.5pt} % make space for the rule
+\addtolength{\textheight}{-0.5pt}
+
+% define chapter page fancy headers:
+\fancypagestyle{plain}{%
+    \fancyhead{} % get rid of headers
+    \renewcommand{\headrulewidth}{0pt}
+    %\addtolength{\headheight}{0.75cm}
+    %\addtolength{\textheight}{-0.75cm}
+}
+
+%-------------------------------------------------------------------
+% Table of Contents Settings
+%-------------------------------------------------------------------
+\setcounter{secnumdepth}{3} % subsubsections are numbered
+\setcounter{tocdepth}{2} % subsections are added to the TOC
+
+
+%-------------------------------------------------------------------
+% Fancy chapter headings
+%-------------------------------------------------------------------
+%\usepackage[Bjarne]{fncychap}
+%\usepackage[Bjornstrup]{fncychap}
+
+%\definecolor{tecnicoblue}{RGB}{0,157,224}
+%\definecolor{tecnicogray}{RGB}{70,85,95}
+%\definecolor{mylightgray}{RGB}{240,240,240}
+%\definecolor{myotherlightgray}{RGB}{245,245,245}
+%\definecolor{myverylightgray}{RGB}{250,250,250}
+
+\definecolor{chapterTextBackground}{RGB}{240,240,240}
+\definecolor{chapterBackground}{RGB}{0,157,224}
+\definecolor{chapterNumberText}{RGB}{70,85,95}
+%\definecolor{chapterTextBackground}{rgb}{0.93,0.88,1.0}
+%\definecolor{chapterBackground}{rgb}{0.4,0.35,0.45}
+\definecolor{chapterText}{rgb}{1.0,1.0,1.0}
+\usepackage{tikz}
+\usepackage{kpfonts}
+\usepackage[explicit]{titlesec}
+\newcommand*\chapterlabel{}
+
+\titleformat
+    {\chapter}
+    {\gdef\chapterlabel{} \normalfont\sffamily\MyHuge\bfseries\scshape}
+    {\gdef\chapterlabel{\thechapter\ }}
+    {0pt}
+    {   \begin{tikzpicture}[remember picture,overlay]
+            \node[yshift=-\myfancychapter] at (current page.north west)
+            {   \begin{tikzpicture}[remember picture, overlay]
+                \draw[color=chapterTextBackground,fill=chapterTextBackground] 
+                    (0,0) rectangle (\paperwidth,\myfancychapter);
+                \node[anchor=east,xshift=\myfancymainright,rectangle,
+                      rounded corners=20pt,inner sep=11pt,
+                      fill=chapterBackground]
+                      {\color{chapterText}\chapterlabel #1};
+                \end{tikzpicture}
+            };
+        \end{tikzpicture}
+    }
+
+%\titlespacing*{\chapter}{0pt}{50pt}{-60pt}
+\ifthenelse{\boolean{bookprint}}
+{\titlespacing*{\chapter}{0pt}{0pt}{0pt}}
+{\titlespacing*{\chapter}{0pt}{0pt}{-10pt}}
+
+%-------------------------------------------------------------------
+% Allow more space for float object on each page
+%-------------------------------------------------------------------
+%\renewcommand\floatpagefraction{0.9}
+%\renewcommand\topfraction{0.9}
+%\renewcommand\bottomfraction{0.9}
+%\renewcommand\textfraction{0.1}
+%\setcounter{totalnumber}{50}
+%\setcounter{topnumber}{50}
+%\setcounter{bottomnumber}{50}
+
+
+\begin{document}
+%-------------------------------------------------------------------
+% FRONT MATTER
+%-------------------------------------------------------------------
+\frontmatter
+
+%-------------------------------------------------------------------
+% Title
+%-------------------------------------------------------------------
+\thispagestyle{empty}
+\title           {Sensor-based Control and Localization of Autonomous Vehicles in Unknown Environments}
+\author          {Bruno João Nogueira Guerreiro}
+\authorhome      {http://www.brunojnguerreiro.eu}
+\major           {Electrical and Computer Engineering}
+\advisor         {Doctor Carlos Jorge Ferreira Silvestre}
+\date            {2013}
+%\coverfigurefile {cover_figure_bergen}
+%\coverfigurefile {cover_figure_final}
+%\coverfigurefile {cover_figure_final2.png}
+%\coverfigurefile {cover_figure_final4.eps}
+\coverfigurefile {cover_figure_final6.pdf}
+\jurypresident      {Chairman of the IST Scientific Board}
+
+\jurymemberone      {Doctor Giuseppe Casalino}
+\jurymembertwo      {Doctor Urbano José Correia Nunes}
+\jurymemberthree    {Doctor João José dos Santos Sentieiro}
+\jurymemberfour     {Doctor Carlos Jorge Ferreira Silvestre}
+\jurymemberfive     {Doctor Paulo Jorge Coelho Ramalho Oliveira}
+
+\jurymemberoneinfo  {Full Professor, University of Genova, Italy}
+\jurymembertwoinfo  {Full Professor, Universidade de Coimbra}
+\jurymemberthreeinfo{Full Professor, Instituto Superior Técnico, Universidade Técnica de Lisboa}
+\jurymemberfourinfo {Associate Professor, Instituto Superior Técnico, Universidade Técnica de Lisboa}
+\jurymemberfiveinfo {Associate Professor, Instituto Superior Técnico, Universidade Técnica de Lisboa}
+
+\classification     {Approved}
+
+\clearpage
+\phantomsection
+\pdfbookmark[0]{Titlepage}{title}
+\maketitle
+
+\baselineskip 18pt % line spacing: -12pt for single spacing
+                   %               -18pt for 1 1/2 spacing
+                   %               -24pt for double spacing
+
+% Quotation page
+\thispagestyle{empty}
+\ifthenelse{\boolean{bookprint}}{\vspace*{14cm}}{\vspace*{18cm}}
+\begin{flushright} 
+%``If knowledge can create problems, \\
+%it is not through ignorance that we can solve them.''\\
+%- Isaac Asimov
+``Everyone who enjoys thinks that the principal thing to the tree is the fruit, \\
+but in point of fact the principal thing to it is the seed. \\
+Herein lies the difference between them that create and them that enjoy.\\
+-- Friedrich Wilhelm Nietzsche, \emph{Human, All Too Human, Part II}.
+\end{flushright} \clearpage \thispagestyle{empty} \cleardoublepage
+
+\glsresetall
+\include{parts/abstract}
+\clearpage
+\thispagestyle{empty}
+\cleardoublepage
+
+\glsresetall
+\include{parts/resumo}
+\clearpage
+\thispagestyle{empty}
+\cleardoublepage
+
+% Dedicate page
+\thispagestyle{empty} \vspace*{20cm}
+\begin{flushright} To my family. \end{flushright}  
+\clearpage 
+\thispagestyle{empty} 
+\cleardoublepage
+
+\include{parts/acknowledgments}
+
+\clearpage
+\thispagestyle{empty}
+\cleardoublepage
+
+% Table of contents
+\cleardoublepage
+%\pdfbookmark[0]{\contentsname}{toc}
+\hypertarget{contents}{}
+\tableofcontents
+\addtocontents{toc}{\protect\markboth{\protect Contents}{\protect Contents}} %force lowercase heading
+
+% List of Figures
+\cleardoublepage
+%\pdfbookmark[0]{List of figures}{lof}
+\listoffigures%
+\addtocontents{lof}{\protect\markboth{\protect List of Figures}{\protect List of Figures}} %force lowercase heading
+
+% List of Tables
+\cleardoublepage
+%\pdfbookmark[0]{List of tables}{lot}
+\listoftables%
+\addtocontents{lot}{\protect\markboth{\protect List of Tables}{\protect List of Tables}} %force lowercase heading
+
+% List of Theorems
+\cleardoublepage
+\pdfbookmark[0]{List of Theorems}{loth}
+\listoftheorems
+\addtocontents{loth}{\protect\markboth{\protect List of Theorems}{\protect List of Theorems}} %force lowercase heading
+
+%-------------------------------------------------------------------
+% Glossaries and notation
+\glsresetall
+
+%\cleardoublepage
+%\glsaddall[types=symbols]
+%\printglossary[type=symbols,nonumberlist=true]
+
+\cleardoublepage
+\glsaddall[types=notation]
+\phantomsection
+\label{glossary:notation}
+\printglossary[type=notation,nonumberlist=true]
+
+\cleardoublepage
+\phantomsection
+\label{glossary:acronyms}
+\printglossary[type=\acronymtype]
+
+%-------------------------------------------------------------------
+% MAIN MATTER
+%-------------------------------------------------------------------
+\mainmatter
+
+% change chapter titles
+\titleformat
+    {\chapter}
+    {\gdef\chapterlabel{} \normalfont\sffamily\MyHuge\bfseries\scshape}
+    {\gdef\chapterlabel{\thechapter\ }}
+    {0pt}
+    {   \begin{tikzpicture}[remember picture,overlay]
+            \node[yshift=-\myfancymainchapter] at (current page.north west)
+            {   \begin{tikzpicture}[remember picture, overlay]
+                \draw[color=chapterTextBackground,fill=chapterTextBackground] 
+                    (0,0) rectangle (\paperwidth,\myfancymainchapter);
+                \node[anchor=east,yshift=3cm,xshift=\myfancymainright]
+                      {\MyHUGE\color{chapterNumberText}\chapterlabel};
+                \node[anchor=east,xshift=\myfancymainright,rectangle,
+                      rounded corners=20pt,inner sep=11pt,
+                      fill=chapterBackground]
+                      {\color{chapterText}#1};
+                \end{tikzpicture}
+            };
+        \end{tikzpicture}
+    }
+    [\vspace{6cm}]
+
+\glsresetall
+
+%% unset first use flag of acronyms that should not apear in long form:
+\glsunset{acronym_udp}
+\glsunset{acronym_cpu}
+\glsunset{acronym_rms}
+\glsunset{acronym_ist}
+\glsunset{acronym_isr}
+\glsunset{acronym_isr}
+\glsunset{acronym_c_lang}
+\glsunset{acronym_cpp_lang}
+
+\include{parts/introduction}
+\include{parts/samplechapter/samplechapter}
+\include{parts/conclusions}
+
+%-------------------------------------------------------------------
+% BACK MATTER
+%-------------------------------------------------------------------
+\appendix
+
+\include{parts/appendix_sample}
+
+%calibration error sources and additional models
+
+%matrix calculus identities
+
+%-------------------------------------------------------------------
+% Bibliography and Publications
+%-------------------------------------------------------------------
+\cleardoublepage
+% change chapter titles again for regular titles
+\titleformat
+    {\chapter}
+    {\gdef\chapterlabel{} \normalfont\sffamily\Huge\bfseries\scshape }
+    {\gdef\chapterlabel{\thechapter\ }}
+    {0pt}
+    {   \begin{tikzpicture}[remember picture,overlay]
+            \node[yshift=-3cm] at (current page.north west)
+            {   \begin{tikzpicture}[remember picture, overlay]
+                \draw[color=chapterTextBackground,fill=chapterTextBackground] (0,0) rectangle (\paperwidth,3cm);
+                \node[anchor=east,xshift=.9\paperwidth,rectangle,
+                      rounded corners=20pt,inner sep=11pt,
+                      fill=chapterBackground]
+                      {\color{chapterText}\chapterlabel #1};
+                \end{tikzpicture}
+            };
+        \end{tikzpicture}
+    }
+
+\baselineskip 12pt % line spacing: -12pt for single spacing
+                   %               -18pt for 1 1/2 spacing
+                   %               -24pt for double spacing
+
+%\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{bib/Biblios_Intro,bib/Biblios_Sample}
+
+%%%% RUN ``bibtex mypub'' to generate Publications list
+%\makeatletter
+%\renewcommand\@biblabel[1]{}
+%\makeatother
+
+\cleardoublepage
+\nocitemypub{*}
+\bibliographystylemypub{plainyr}
+\bibliographymypub{bib/Biblios_Self}
+
+%\cleardoublepage
+%\printindex
+
+\end{document}

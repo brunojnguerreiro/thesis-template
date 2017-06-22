@@ -1,0 +1,333 @@
+
+%--- New Commands and Definitions
+
+\newcommand{\bb}[1]{\mathbf{#1}}
+\newcommand{\bs}[1]{\pmb{#1}}
+
+\newcommand{\low}[1]{_{\scriptscriptstyle #1}}
+\newcommand{\high}[1]{^{\scriptscriptstyle #1}}
+\newcommand{\mat}[1]{\bb{#1}}
+\newcommand{\gmat}[1]{\bs{#1}}
+\newcommand{\Gmat}[1]{\pmb{\cal #1}}
+\newcommand{\bvec}[1]{\bb{#1}}
+\newcommand{\gvec}[1]{\bs{#1}}
+\newcommand{\blkmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+\newcommand{\stx}[1]{\bvec{x}\low{#1}}
+\newcommand{\stxU}[1]{\bvec{x}_{#1}}
+\newcommand{\stxT}[1]{\bvec{x}^T\low{#1}}
+\newcommand{\hstx}[1]{\hat{\bvec{x}}\low{#1}}
+\newcommand{\bstx}[1]{\bar{\bvec{x}}\low{#1}}
+\newcommand{\dstx}[1]{\dot{\bvec{x}}\low{#1}}
+\newcommand{\dstxU}[1]{\dot{\bvec{x}}_{#1}}
+
+\newcommand{\ctr}[1]{\bvec{u}\low{#1}}
+\newcommand{\ctrU}[1]{\bvec{u}_{#1}}
+\newcommand{\ctrT}[1]{\bvec{u}^T\low{#1}}
+\newcommand{\hctr}[1]{\hat{\bvec{u}}\low{#1}}
+\newcommand{\bctr}[1]{\bar{\bvec{u}}\low{#1}}
+\newcommand{\dctr}[1]{\dot{\bvec{u}}\low{#1}}
+\newcommand{\dctrU}[1]{\dot{\bvec{u}}_{#1}}
+
+
+\newcommand{\vel}[1]{\bvec{v}\low{#1}}
+\newcommand{\velU}[1]{\bvec{v}_{#1}}
+\newcommand{\velT}[1]{\bvec{v}^T\low{#1}}
+\newcommand{\hvel}[1]{\hat{\bvec{v}}\low{#1}}
+\newcommand{\bvel}[1]{\bar{\bvec{v}}\low{#1}}
+\newcommand{\bvelT}[1]{\bar{\bvec{v}}^T\low{#1}}
+\newcommand{\dvel}[1]{\dot{\bvec{v}}\low{#1}}
+\newcommand{\dvelU}[1]{\dot{\bvec{v}}_{#1}}
+
+\newcommand{\om}[1]{\gvec{\omega}\low{#1}}
+\newcommand{\omU}[1]{\gvec{\omega}_{#1}}
+\newcommand{\omT}[1]{\gvec{\omega}^T\low{#1}}
+\newcommand{\hatom}[1]{\hat{\gvec{\omega}}\low{#1}}
+\newcommand{\bom}[1]{\bar{\gvec{\omega}}\low{#1}}
+\newcommand{\dom}[1]{\dot{\gvec{\omega}}\low{#1}}
+\newcommand{\domU}[1]{\dot{\gvec{\omega}}_{#1}}
+
+\newcommand{\lbd}[1]{\gvec{\lambda}\low{#1}}
+\newcommand{\lbdU}[1]{\gvec{\lambda}_{#1}}
+\newcommand{\lbdT}[1]{\gvec{\lambda}^T\low{#1}}
+\newcommand{\hlbd}[1]{\hat{\gvec{\lambda}}\low{#1}}
+\newcommand{\dlbd}[1]{\dot{\gvec{\lambda}}\low{#1}}
+\newcommand{\dlbdU}[1]{\dot{\gvec{\lambda}}_{#1}}
+
+\newcommand{\pos}[2]{{}\high{#1}\bvec{p}\low{#2}}
+\newcommand{\posU}[2]{{}^{#1}\bvec{p}_{#2}}
+\newcommand{\bposU}[2]{{}^{#1}\bar{\bvec{p}}_{#2}}
+\newcommand{\dltpos}[2]{{}\high{#1}\delta\bvec{p}\low{#2}}
+\newcommand{\posT}[2]{{}\high{#1}\bvec{p}^T\low{#2}}
+\newcommand{\hpos}[2]{{}\high{#1}\hat{\bvec{p}}\low{#2}}
+\newcommand{\hposT}[2]{{}\high{#1}\hat{\bvec{p}}^T\low{#2}}
+\newcommand{\dpos}[2]{{}\high{#1}\dot{\bvec{p}}\low{#2}}
+\newcommand{\dposU}[2]{{}\high{#1}\dot{\bvec{p}}_{#2}}
+\newcommand{\ddpos}[2]{{}\high{#1}\ddot{\bvec{p}}\low{#2}}
+
+\newcommand{\angdir}[2]{{}\high{#1}\alpha\low{#2}}
+\newcommand{\dangdir}[2]{{}\high{#1}\dot{\alpha}\low{#2}}
+
+\newcommand{\dir}[2]{{}\high{#1}\bvec{d}\low{#2}}
+\newcommand{\bdir}[2]{{}\high{#1}\bar{\bvec{d}}\low{#2}}
+\newcommand{\dirT}[2]{{}\high{#1}\bvec{d}^T\low{#2}}
+\newcommand{\hdir}[2]{{}\high{#1}\hat{\bvec{d}}\low{#2}}
+\newcommand{\ddir}[2]{{}\high{#1}\dot{\bvec{d}}\low{#2}}
+
+\newcommand{\lm}[2]{{}\high{#1}\bvec{m}\low{#2}}
+\newcommand{\lmT}[2]{{}\high{#1}\bvec{m}^T\low{#2}}
+\newcommand{\hlm}[2]{{}\high{#1}\hat{\bvec{m}}\low{#2}}
+\newcommand{\dlm}[2]{{}\high{#1}\dot{\bvec{m}}\low{#2}}
+
+\newcommand{\out }[1]{\bvec{y}\low{#1}}
+\newcommand{\dout }[1]{\dot{\bvec{y}}\low{#1}}
+\newcommand{\outT }[1]{\bvec{y}^T\low{#1}}
+\newcommand{\outp }[1]{\bvec{y}\low{p_#1}}
+\newcommand{\doutp}[1]{\dot{\bvec{y}}\low{p_#1}}
+\newcommand{\ddoutp}[1]{\ddot{\bvec{y}}\low{p_#1}}
+\newcommand{\outpT}[1]{\bvec{y}^T\low{p_#1}}
+\newcommand{\outd }[1]{\bvec{y}\low{d_#1}}
+\newcommand{\doutd}[1]{\dot{\bvec{y}}\low{d_#1}}
+\newcommand{\ddoutd}[1]{\ddot{\bvec{y}}\low{d_#1}}
+\newcommand{\outdT}[1]{\bvec{y}^T\low{d_#1}}
+
+%\newcommand{\xxi}[0]{\gvec{\xi}}
+
+%\newcommand{\DDelta}[0]{\mathfrak{D}}
+
+\newcommand{\rot}[2]{{}\high{#1}\low{#2}\mat{R}}
+\newcommand{\rotT}[2]{{}\high{#1}\low{#2}\mat{R}^T}
+\newcommand{\dltrot}[2]{{}\high{#1}\low{#2}\delta\mat{R}}
+\newcommand{\drot}[2]{{}\high{#1}\low{#2}\dot{\mat{R}}}
+\newcommand{\hrot}[2]{{}\high{#1}\low{#2}\hat{\mat{R}}}
+\newcommand{\trot}[2]{{}\high{#1}\low{#2}\tilde{\mat{R}}}
+
+\newcommand{\covar}[1]{\gmat{\Sigma}\low{#1}}
+\newcommand{\covarBIG}[1]{\gmat{\Sigma}_{#1}}
+
+\newcommand{\fI}[0]{I}
+\newcommand{\fE}[0]{E}
+\newcommand{\fB}[0]{B}
+\newcommand{\fCM}[0]{CM}
+\newcommand{\fH}[0]{H}
+\newcommand{\fL}[0]{L}
+\newcommand{\fLB}[0]{LB}
+\newcommand{\frames}[1]{\ensuremath{\{#1\}}}
+\newcommand{\frameI}[0]{\frames{\fI}}
+\newcommand{\frameE}[0]{\frames{\fE}}
+\newcommand{\frameB}[0]{\frames{\fB}}
+\newcommand{\frameCM}[0]{\frames{\fCM}}
+\newcommand{\frameH}[0]{\frames{\fH}}
+\newcommand{\frameL}[0]{\frames{\fL}}
+\newcommand{\frameLB}[0]{\frames{\fLB}}
+
+\newcommand{\zero}[0]{\mat{0}}
+\newcommand{\one}[0]{\mat{1}}
+\newcommand{\zeros}[2]{\zero_{{#1}\times{#2}}}
+\newcommand{\ones}[2]{\one_{{#1}\times{#2}}}
+\newcommand{\eyefunc}[0]{\mat{I}}
+\newcommand{\eye}[1]{\eyefunc_{#1}}
+
+\newcommand{\trsps}[0]{^T}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\setunion}[0]{\oplus}
+
+\newcommand{\ColVec}[2]{\left[\begin{array}{#1} #2 \end{array}\right]}
+\newcommand{\RowVec}[2]{\left[\begin{array}{#1} #2 \\\end{array}\right]}
+
+\newcommand{\sk}[0]{\textrm{skew}}
+\newcommand{\symm}[0]{{\rm symm}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\diag}[1]{{\rm diag}\left(#1\right)}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\normL}[2]{\norm{#2}_{\set{L}_{#1}} }
+\newcommand{\normH}[2]{\norm{#2}_{\set{H}_{#1}} }
+\newcommand{\determ}[1]{\left|#1\right|}
+\newcommand{\eigmax}[1]{\lambda_{max}\left(#1\right)}
+\newcommand{\eigmin}[1]{\lambda_{min}\left(#1\right)}
+\newcommand{\svd}[1]{\rm{svd}\left(#1\right)}
+\newcommand{\tr}[1]{{\rm tr}\left(#1\right)}
+\newcommand{\vc}[1]{{\rm vec}\left(#1\right)}
+\newcommand{\convhull}[1]{ {\rm co}\left(#1\right) }
+%\newcommand{\dotp}[2]{\langle#1,#2\rangle}
+\newcommand{\intprod}[2]{\langle#1,#2\rangle}
+\newcommand{\extprod}[2]{#1 \times #2}
+\newcommand{\expo}[1]{\textrm{exp}\left[#1\right]}
+\newcommand{\expect}[1]{\langle#1\rangle}
+\newcommand{\sign}[1]{{\rm sign}\left({#1}\right)}
+\newcommand{\matskewfunc}[0]{\mat{S}}
+\newcommand{\matunskewfunc}[0]{\mat{S}\high{-1}}
+\newcommand{\symmcompfunc}[0]{{\rm symm}}
+\newcommand{\skewcompfunc}[0]{{\rm skew}}
+\newcommand{\matskew}[1]{\matskewfunc(#1)}
+\newcommand{\matunskew}[1]{\matunskewfunc(#1)}
+\newcommand{\matskewPow}[2]{\matskewfunc^{#2}(#1)}
+\newcommand{\symmcomp}[1]{\symmcompfunc\left(#1\right)}
+\newcommand{\skewcomp}[1]{\skewcompfunc\left(#1\right)}
+
+\newcommand{\N}[0]{\mathbb{N}}
+\newcommand{\Z}[0]{\mathbb{Z}}
+\newcommand{\R}[0]{\mathbb{R}}
+\newcommand{\C}[0]{\mathbb{C}}
+\newcommand{\orth}[1]{\set{O}(#1)}
+\newcommand{\som}[0]{\set{SO}(3)}
+\newcommand{\so}[1]{\set{SO}(#1)}
+\newcommand{\se}[1]{\set{SE}(#1)}
+\newcommand{\sem}[0]{\set{SE}(3)}
+\newcommand{\krm}[0]{\set{K}(3)}
+\newcommand{\kr}[1]{\set{K}(#1)}
+\newcommand{\mr}[0]{\ensuremath{\set{M}(3,\R)}}
+\newcommand{\mrm}[0]{\set{M}(3,\R)}
+\newcommand{\mrmn}[1]{\set{M}(#1,\R)}
+%\newcommand{\orth}[1]{{\rm O}(#1)}
+%\newcommand{\som}[0]{{\rm SO}(3)}
+%\newcommand{\so}[1]{{\rm SO}(#1)}
+%\newcommand{\mr}[0]{{\rm M}(3,$\R$)}
+%\newcommand{\krm}[0]{{\rm K}(3)}
+%\newcommand{\kr}[1]{{\rm K}(#1)}
+%\newcommand{\mrm}[0]{{\rm M}(3,\R)}
+%\newcommand{\mrmn}[1]{{\rm M}(#1,\R)}
+
+\newcommand{\dd}[2]{\frac{d\, #1}{d #2}}
+\newcommand{\ddp}[2]{\frac{\partial\,#1}{\partial #2}}
+\newcommand{\ddpT}[2]{\frac{\partial\,#1}{\partial #2^T}}
+\newcommand{\ddpx}[2]{\frac{\partial\,\hat{#1}}{\partial #2}}
+\newcommand{\dds}[3]{\frac{d^2\, #1}{d #2\,d #3^T}}
+\newcommand{\ddss}[3]{\frac{d^2\, #1}{d #2^2}}
+\newcommand{\ddssp}[2]{\frac{\partial^2\, #1}{\partial #2^2}}
+\newcommand{\ddsdp}[3]{\frac{\partial^2\, #1}{\partial #2\,\partial #3}}
+\newcommand{\ddsp}[3]{\frac{\partial^2\, #1}{\partial #2\,\partial #3^T}}
+\newcommand{\ddspT}[3]{\frac{\partial^2\, #1}{\partial #2\,\partial #3}}
+\newcommand{\ddspx}[3]{\frac{\partial^2\, \hat{#1}}{\partial #2\,\partial #3^T}}
+
+\newcommand{\ddi}[3]{\frac{d^{#1}\, #2}{d {#3}^{#1}}}
+\newcommand{\ddpi}[3]{\frac{\partial^{#1}\, #2}{\partial {#3}^{#1}}}
+
+\newcommand{\grd}[2]{\nabla #1|_{#2}}
+\newcommand{\grds}[2]{\nabla^2 #1|_{#2}}
+\newcommand{\grdx}[2]{\nabla \hat{#1}|_{#2}}
+\newcommand{\gradx}[2]{\textrm{grad} \hat{#1}|_{#2}}
+\newcommand{\grdsx}[2]{\nabla^2 \hat{#1}|_{#2}}
+\newcommand{\hess}[3]{\textrm{Hess} #1\left(#2,#3\right)}
+\newcommand{\hessx}[3]{\textrm{Hess} \hat{#1}\left(\hat{#2},\hat{#3}\right)}
+
+%to be unified with the previous macros!
+\newcommand{\Set}[1]{\mathcal{#1}}
+\newcommand{\SetSeq}[1]{\bs{\mathcal{#1}}}
+\newcommand{\Rot}[0]{\mat{R}}                         % rotation matrix
+\newcommand{\QRot}[0]{\mat{Q}}                         % attitude Q matrix
+
+\newcommand{\suptextregistered}[0]{$^{\textrm{\textregistered}}$}
+
+% Text Format (by PB)
+%-------------------------------------------------------------------
+
+% Math Bold Face
+\newcommand{\mbf}[1]
+	{{\mathbf #1}}
+
+% Math Bold Bold
+\newcommand{\mbb}[1]
+	{{\mathbb #1}}
+
+% Math Bold Greek
+\newcommand{\mbg}[1]
+	{{\mbox{\boldmath$#1$}}}
+	
+%% Low (Script Script Style)
+%\newcommand{\low}[1]
+%	{_{\scriptscriptstyle #1}}
+
+% Specific Macros
+%-------------------------------------------------------------------
+% Rotation Matrix
+\newcommand{\MR}{{\textbf{R}}}
+	
+% Skew-symmetric Matrix S
+\newcommand{\MS}{{\mathbf{S}}}
+
+
+% environments
+%-------------------------------------------------------------------
+
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corol}[thm]{Corollary}
+\newtheorem{assum}{Assumption}
+\newtheorem{result}[thm]{Result}
+%\newtheorem{proposition}[thm]{Proposition}  % To remove
+%\newtheorem{theorem}[thm]{Theorem}          % To remove
+
+\newtheorem{define}{Definition}
+%\newtheorem{algorithm}{Algorithm}
+\newtheorem{criteria}{Criteria}
+
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+
+% Put chapter number in theorem environments
+\numberwithin{thm}{chapter}
+\numberwithin{prop}{chapter}
+\numberwithin{lemma}{chapter}
+\numberwithin{corol}{chapter}
+\numberwithin{assum}{chapter}
+\numberwithin{remark}{chapter}
+\numberwithin{define}{chapter}
+
+%Note environment, for anotating draft version
+\newcommand{\note}[1]{{\color{red}\footnotesize\sffamily [#1]}}
+
+% Marco Morgado macros that might be useful:
+
+%\newcommand{\R} {\mathcal{R}}
+%\newcommand{\w} {\boldsymbol{\omega}}
+%\newcommand{\bi} {\mathbf{b}_{\scriptscriptstyle i}}
+%\newcommand{\bj} {\mathbf{b}_{\scriptscriptstyle j}}
+%\newcommand{\bn}[1] {\mathbf{b}_{\scriptscriptstyle #1}}
+%\newcommand{\p} {\mathbf{p}}
+%\newcommand{\dr} {\mathbf{d}}
+%\newcommand{\rpb} {\mathbf{r}}
+%\newcommand{\s} {\mathbf{s}}
+%\newcommand{\vel} {\mathbf{v}}
+
+%\newcommand{\rhoi} {\rho_{\scriptscriptstyle i}}
+%\newcommand{\drhoi} {\dot{\rho}_{\scriptscriptstyle i}}
+%\newcommand{\rhoj} {\rho_{\scriptscriptstyle j}}
+%\newcommand{\drhoj} {\dot{\rho}_{\scriptscriptstyle j}}
+%\newcommand{\rhon}[1] {\rho_{\scriptscriptstyle #1}}
+%\newcommand{\drhon}[1] {\dot{\rho}_{\scriptscriptstyle #1}}
+
+%\newcommand{\T} {{}^{\scriptscriptstyle T}}
+
+%\newcommand{\DI}[2]{{#1}_{\scriptscriptstyle #2}}
+
+%% Operators
+%%\newcommand{\skews}[1]{\mathcal{S}\left(#1\right)}
+%%\newcommand{\unskew}[1]{{\mathcal{S}}^{-1}\left(#1\right)}
+%\newcommand{\skews}[1]{[#1\times]}
+
+%\DeclareMathOperator{\rank}{rank}
+%\DeclareMathOperator{\round}{round}
+%\DeclareMathOperator{\trace}{trace}
+%\DeclareMathOperator{\diag}{diag}
+%\DeclareMathOperator{\blkdiag}{blkdiag}
+%\DeclareMathOperator{\rot}{rot}
+%\DeclareMathOperator{\eigvec}{eigvec}
+
+%\newcommand{\eye}{\mathbf{I}}
+%\newcommand{\zeros}{\mathbf{0}}
+%\newcommand{\eyen}[1]{\mathbf{I}_{\scriptscriptstyle #1}}
+%\newcommand{\zerosn}[2]{\mathbf{0}_{\scriptscriptstyle #1 \times #2}}
+%\newcommand{\ones}{\mathbf{1}}
+%\newcommand{\onesn}[2]{\mathbf{1}_{\scriptscriptstyle #1 \times #2}}
+
+%\newcommand{\expectedone}[1]{E\left\{#1\right\}}
+%\newcommand{\expectedtwo}[2]{E\left\{#1#2\right\}}
+
+%% Frames
+%\newcommand{\ICF}{\{I\}\:}
+%\newcommand{\BCF}{\{B\}\:}
+%\newcommand{\UCF}{\{U\}\:}
+%\newcommand{\ECF}{\{E\}\:}
+

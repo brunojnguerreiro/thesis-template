@@ -1,0 +1,82 @@
+% to refer to an acronym, use:
+%   \gls{<label>}   - This command prints the term associated with <label> passed as its argument. 
+%                   If the hyperref package was loaded before glossaries it will also be hyperlinked 
+%                   to the entry in glossary.
+%   \glspl{<label>} - This command prints the plural of the defined term, other than that it 
+%                   behaves in the same way as gls.
+%   \Gls{<label>}   - This command prints the singular form of the term with the first character 
+%                   converted to upper case.
+%   \Glspl{<label>} - This command prints the plural form with first letter of the term converted 
+%                   to upper case.
+%   \glslink{<label>}{<alternate text>} - This command creates the link as usual, but typesets the 
+%                   alternate text instead. It can also take several options which changes its 
+%                   default behavior (see the documentation).
+%   \glsfirst{<label>} - Prints as if it was the first time it is referred.
+
+%--- institutions:
+\newacronym {acronym_ist}{IST}{Instituto Superior Técnico}
+\newacronym {acronym_isr}{ISR}{Institute for Systems and Robotics}
+
+%--- generic terms:
+\newacronym[plural={two dimensions}]
+            {acronym_2d}{\mbox{2-D}}{two-dimensional}
+\newacronym[plural={three dimensions}]
+            {acronym_3d}{\mbox{3-D}}{three-dimensional}
+\newacronym {acronym_cpu}{CPU}{central processing unit}
+\newacronym {acronym_udp}{UDP}{user datagram protocol}
+\newacronym {acronym_c_lang}{C}{C programming language}
+\newacronym {acronym_cpp_lang}{C++}{C++ programming language}
+\newacronym {acronym_rms}{RMS}{root mean square}
+\newacronym {acronym_nis}{NIS}{normalized innovation square}
+
+%--- sensor:
+\newacronym {acronym_ladar}{LADAR}{laser detection and ranging system}
+\newacronym {acronym_lidar}{LIDAR}{light detection and ranging system}
+\newacronym {acronym_ins}{INS}{inertial navigation system}
+\newacronym {acronym_gps}{GPS}{global positioning system}
+\newacronym {acronym_cors}{CORS}{continuously operating reference station}
+\newacronym {acronym_imu}{IMU}{inertial measurement unit}
+\newacronym {acronym_ahrs}{AHRS}{attitude and heading reference system}
+
+\newacronym {acronym_eci}{ECI}{earth-centered inertial}
+\newacronym {acronym_ecef}{ECEF}{earth-centered earth-fixed}
+\newacronym {acronym_ned}{NED}{north-east-down}
+\newacronym {acronym_enu}{ENU}{east-north-up}
+
+
+%--- platforms:
+\newacronym {acronym_uav}{UAV}{unmanned aerial vehicle}
+\newacronym [longplural={autonomous surface craft}]
+            {acronym_asc}{ASC}{autonomous surface craft}
+\newacronym {acronym_asv}{ASV}{autonomous surface vessel}
+
+%--- methods and theories:
+\newacronym {acronym_lqr}{LQR}{linear quadratic regulator}
+
+\newacronym {acronym_mpc}{MPC}{model predictive control}
+\newacronym {acronym_gpc}{GPC}{generalized predictive control}
+\newacronym {acronym_nmpc}{NMPC}{nonlinear model predictive control}
+
+\newacronym {acronym_lpv}{LPV}{linear parameter varying}
+\newacronym[longplural={linear matrix inequalities}]
+            {acronym_lmi}{LMI}{linear matrix inequality}
+\newacronym[longplural={power spectral densities}]
+            {acronym_psd}{PSD}{power spectral density}
+\newacronym {acronym_sdg}{SDG}{statistical discrete gust}
+
+\newacronym {acronym_icp}{ICP}{iterative closest point}
+\newacronym {acronym_ml}{ML}{maximum likelihood}
+
+\newacronym {acronym_ekf}{EKF}{extended Kalman filter}
+\newacronym {acronym_slam}{SLAM}{simultaneous localization and mapping}
+\newacronym {acronym_jcbb}{JCBB}{joint compatibility branch and bound}
+\newacronym {acronym_ccda}{CCDA}{combined constrained data association}
+
+\newacronym {acronym_gas}{GAS}{globally asymptotically stable}
+\newacronym {acronym_ugas}{UGAS}{uniform global asymptotic stability}
+\newacronym {acronym_ltv}{LTV}{linear time-varying}
+\newacronym {acronym_uco}{UCO}{uniformly completely observable}
+
+%\newacronym {acronym_}{}{}
+
+
