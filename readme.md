@@ -1,4 +1,4 @@
-#Thesis Template
+# Thesis Template
 
 This repository provides a basic thesis template created from my own PhD thesis. The design uses colors similar to those used in Técnico visual Identity rules (available [here](https://tecnico.ulisboa.pt/en/about-tecnico/institutional/logo-identity-standards)).
 
